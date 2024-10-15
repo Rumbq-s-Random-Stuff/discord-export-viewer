@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Export Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="title">Servers</div>
+            <div id="serverList"></div>
+        </div>
+        
+        <!-- Channel List and Messages Section -->
+        <div class="main-content">
+            <div class="resizable">
+                <div id="serverInfo" class="category-section">
+                    <div id="serverName" class="title"></div>
+                    <div id="categorySection"></div>
+                </div>
+                <div class="main-content">
+                    <div class="top-bar">
+                        <div class="channel-display">
+                            <div class="selected-channel"></div>
+                            <div class="channel-topic"></div>
+                        </div>
+                        <div class="search-container">
+                            <input type="text" id="searchInput" placeholder="Search..." />
+                            <div class="search-dropdown" id="searchDropdown">
+                                <ul>
+                                    <li data-option="from">from: user</li>
+                                    <li data-option="mentions">mentions: user</li>
+                                    <li data-option="has">has: link, embed, or file</li>
+                                    <li data-option="before">before: specific date</li>
+                                    <li data-option="during">during: specific date</li>
+                                    <li data-option="after">after: specific date</li>
+                                    <li data-option="pinned">pinned: true or false</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="top-bar-buttons">
+                            <button id="togglePinned">Pinned Messages</button>
+                            <button id="toggleMembers">Members List</button>
+                            <button id="toggleChannels">Toggle Channels</button>
+                            <select id="dateFormatSelector">
+                                <option value="default">Default (DD.MM.YYYY HH:mm)</option>
+                                <option value="us">US Format (MM/DD/YYYY HH:mm)</option>
+                                <option value="iso">ISO Format (YYYY-MM-DD HH:mm:ss)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="resizable">
+                        <div class="messageSection">
+                            <div id="messages" class="message-list"></div>
+                            <div id="chunkButtons" class="chunk-buttons"></div>
+                        </div>
+                        <div id="additionalSection" class="additional-section">
+                            <!-- Members List Section -->
+                            <div id="membersSection">
+                                <div class="title">Members</div>
+                                <ul id="membersList"></ul> <!-- Default container for members -->
+                            </div>
+        
+                            <!-- Pinned Messages Section -->
+                            <div id="pinnedSection" style="display: none;">
+                                <div class="title">Pinned Messages</div>
+                                <ul id="pinnedList"></ul> <!-- Default container for pinned messages -->
+                            </div>
+        
+                            <div id="searchSection" style="display: none;">
+                                <div id="searchTitle" class="title"></div>
+                                <div id="searchResults"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</body>
+</html>
