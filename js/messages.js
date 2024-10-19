@@ -67,8 +67,8 @@ export function displayMessage(message, type = '') {
         const referenceDiv = document.createElement('div');
         referenceDiv.classList.add('reference');
 
-        const refContent = channels.currentChannelData.messages[refId]
-            ? `<strong>${channels.messages[refId]?.author.name}</strong>: ${getReferencedMessageContent(channels.currentChannelData.messages[refId])}`
+        const refContent = channels.messages[refId]
+            ? `<strong>${channels.messages[refId]?.author.name}</strong>: ${getReferencedMessageContent(channels.messages[refId])}`
             : "Couldn't load the message";
 
         referenceDiv.innerHTML = `

@@ -2,6 +2,7 @@ import { displayMessage, displayMessages } from './messages.js';
 import * as aes from './aes.js'
 
 let members = [];
+export let messages = {};
 let loadedMessages = []; // Now holds only message IDs
 export let currentChannelData = null;
 let loadedMessageOffset = 0;
@@ -163,8 +164,8 @@ export function loadChannelMessages(channelId, channelDiv, key='', chunk=0) {
 
                 loadedMessageOffset = 0;
                 currentChannelData = channelData;
-                loadedMessages = [];
                 messages = {};
+                loadedMessages = [];
                 members = [];
                 let totalMessages = channelData.messages.length;
                 let index = totalMessages - 1; // Start from the last message
